@@ -1,0 +1,49 @@
+/* Design System — styles.css */
+:root{
+  --color-primary: #2563eb; /* blue-600 */
+  --color-bg: #ffffff;
+  --color-bg-dark: #0B1020;
+  --color-text: #0F172A; /* slate-900 */
+  --color-text-dark: #E5E7EB; /* slate-200 */
+  --radius: 16px;
+  --space-1: 0.5rem; --space-2: 1rem; --space-3: 1.5rem; --space-4: 2rem;
+}
+
+html { font-size: 100%; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  margin: 0;
+}
+
+.container { max-width: 1200px; margin-inline: auto; padding-inline: var(--space-2); }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-2); }
+.card {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(2,6,23,0.08); padding: var(--space-3);
+}
+.btn { padding: var(--space-2) var(--space-3); border-radius: var(--radius); border: none; cursor: pointer; }
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:focus-visible { outline: 3px solid #a3e635; outline-offset: 3px; }
+
+h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.25rem, 3vw, 1.75rem); letter-spacing: -0.01em; }
+
+/* Responsive breakpoints */
+@media (min-width: 640px) { .col-span-sm-6 { grid-column: span 6; } }
+@media (min-width: 768px) { .col-span-md-6 { grid-column: span 6; } }
+@media (min-width: 1024px){ .col-span-lg-4 { grid-column: span 4; } }
+
+/* Dark mode */
+:root[data-theme='dark']{
+  --color-bg: var(--color-bg-dark);
+  --color-text: var(--color-text-dark);
+}
+.card.dark { background: #0f172a; color: var(--color-text-dark); }
+
+/* Accessibility */
+:focus-visible { outline: 3px solid #a3e635; outline-offset: 3px; }
+a { color: var(--color-primary); }
+a:hover, a:focus { text-decoration: underline; }

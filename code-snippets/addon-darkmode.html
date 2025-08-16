@@ -1,0 +1,15 @@
+<!-- addon-darkmode.html -->
+<button id="themeToggle" aria-label="Switch theme">🌓</button>
+<script>
+  const root = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if (stored) root.dataset.theme = stored;
+  document.getElementById('themeToggle').onclick = () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', root.dataset.theme);
+  };
+</script>
+<style>
+  :root[data-theme='dark']{--color-bg:#0B1020;--color-text:#E5E7EB}
+  body{background:var(--color-bg);color:var(--color-text)}
+</style>
